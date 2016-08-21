@@ -69,6 +69,10 @@ docker rm -f <container_name>
 
 # Remove stopped containers
 docker rm $(docker ps -a -q)
+
+# Remove all containers of a specific image
+docker rm $(docker ps --all | grep <image_name> | awk '{ print $1 }')
+docker rm $(docker ps --all | grep consul | awk '{ print $1 }')
 ```
 
 ```bash
